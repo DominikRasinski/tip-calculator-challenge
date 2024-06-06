@@ -4,8 +4,8 @@ import { Calculator } from './componnets/calculator/calculator';
 
 function App() {
   return (
-    <div>
-      <Logo />
+    <div className='bg-very-light-grayish-cyan'>
+      <Logo logoText='SPLITTER' />
       <Calculator />
     </div>
   );

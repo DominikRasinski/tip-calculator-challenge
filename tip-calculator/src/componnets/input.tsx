@@ -5,9 +5,11 @@ type InputProps = {
 export const Input = (props: InputProps) => {
   const { icon } = props;
   return (
-    <div>
-      <span>{icon}</span>
-      <input type='text'></input>
+    <div className='relative'>
+      <span className='absolute'>{icon}</span>
+      <input
+        type='text'
+        className='pl-6'></input>
     </div>
   );
 };
