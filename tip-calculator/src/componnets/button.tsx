@@ -1,16 +1,20 @@
 import { ButtonHTMLAttributes, useState } from 'react';
-
 interface ButtonProps {
   buttonName: string;
   classCss?: string;
   bgColor?: 'primary' | 'second' | 'none';
+  onClick?: (e: any) => void;
 }
 
 export const Button = (props: ButtonProps) => {
-  const [tip, setTip] = useState('');
+  const [open, setOpen] = useState(false);
+  const {onClick} = props;
 
   const handleClick = (e: any) => {
-    setTip(e);
+    if (onClick) { 
+      onClick(e)
+    }
+    setOpen((o) => !o);
   };
 
   const { buttonName, bgColor = 'primary' } = props;
@@ -33,7 +37,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <button
-      className={`${classCss}`}
+      className={`${classCss} ${open ? 'bg-red-500 text-blue-500' : ''}`}
       onClick={(e) => handleClick(e.currentTarget.value)}
       value={buttonName}>
       {`${buttonName}`}

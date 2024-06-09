@@ -4,11 +4,14 @@ import { ViewResult } from './viewResult';
 import { IconDollar } from '../icons/icon-dollar';
 import { IconPerson } from '../icons/icon-person';
 import { useState } from 'react';
+import { buttons } from './buttons';
 
 export const Calculator = () => {
   const [bill, setBill] = useState('');
   const [people, setPeople] = useState('');
   const [tip, setTip] = useState('');
+
+  console.log(tip);
 
   return (
     <div className=' flex items-center justify-center flex-col'>
@@ -27,26 +30,9 @@ export const Calculator = () => {
             Select Tip %
           </p>
           <div className='flex items-center flex-row flex-wrap justify-between'>
-            <Button
-              buttonName='5%'
-              classCss='w-[47%]'
-            />
-            <Button
-              buttonName='10%'
-              classCss='w-[47%]'
-            />
-            <Button
-              buttonName='15%'
-              classCss='w-[47%]'
-            />
-            <Button
-              buttonName='25%'
-              classCss='w-[47%]'
-            />
-            <Button
-              buttonName='50%'
-              classCss='w-[47%]'
-            />
+            {buttons.tips.map((button) => (
+              <Button onClick={() => setTip(e => e)}key={button.tip} buttonName={button.tip} classCss='w-[47%]' />
+            ))}
             <Input
               placeholder='Custom'
               inputCss='w-full'
