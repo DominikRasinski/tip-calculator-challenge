@@ -6,12 +6,16 @@ import { IconPerson } from '../icons/icon-person';
 import { useState } from 'react';
 import { buttons } from './buttons';
 
+export type openUnionType = null | number;
+
 export const Calculator = () => {
   const [bill, setBill] = useState('');
   const [people, setPeople] = useState('');
-  const [tip, setTip] = useState('');
+  const [isOpen, setIsOpen] = useState<openUnionType>(null);
 
-  console.log(tip);
+  const handleOpen = (id: number) => {
+    setIsOpen(id);
+  };
 
   return (
     <div className=' flex items-center justify-center flex-col'>
@@ -30,8 +34,15 @@ export const Calculator = () => {
             Select Tip %
           </p>
           <div className='flex items-center flex-row flex-wrap justify-between'>
-            {buttons.tips.map((button) => (
-              <Button onClick={() => setTip(e => e)}key={button.tip} buttonName={button.tip} classCss='w-[47%]' />
+            {buttons.tips.map((button, index) => (
+              <Button
+                id={index}
+                key={button.tip}
+                onClick={handleOpen}
+                open={isOpen}
+                buttonName={button.tip}
+                classCss='w-[47%]'
+              />
             ))}
             <Input
               placeholder='Custom'

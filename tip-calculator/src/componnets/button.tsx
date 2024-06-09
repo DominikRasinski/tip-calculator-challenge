@@ -1,24 +1,22 @@
-import { ButtonHTMLAttributes, useState } from 'react';
+import { openUnionType } from './calculator/calculator';
+
 interface ButtonProps {
+  id: number;
   buttonName: string;
+  open: openUnionType;
   classCss?: string;
   bgColor?: 'primary' | 'second' | 'none';
-  onClick?: (e: any) => void;
+  onClick: (id: number) => void;
 }
 
 export const Button = (props: ButtonProps) => {
-  const [open, setOpen] = useState(false);
-  const {onClick} = props;
-
-  const handleClick = (e: any) => {
-    if (onClick) { 
-      onClick(e)
-    }
-    setOpen((o) => !o);
-  };
-
-  const { buttonName, bgColor = 'primary' } = props;
+  const { buttonName, bgColor = 'primary', id, onClick } = props;
   let { classCss } = props;
+  const open = props.open === id;
+
+  const handleClick = (e: any, id: number) => {
+    onClick(id);
+  };
 
   switch (bgColor) {
     case 'primary':
@@ -38,7 +36,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       className={`${classCss} ${open ? 'bg-red-500 text-blue-500' : ''}`}
-      onClick={(e) => handleClick(e.currentTarget.value)}
+      onClick={(e) => handleClick(e.currentTarget.value, id)}
       value={buttonName}>
       {`${buttonName}`}
     </button>

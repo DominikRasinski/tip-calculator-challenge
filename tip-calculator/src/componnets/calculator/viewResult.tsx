@@ -36,6 +36,9 @@ export const ViewResult = () => {
         buttonName='RESET'
         bgColor='second'
         classCss='w-full m-0'
+        onClick={() => {}}
+        id={9039}
+        open={null}
       />
     </div>
   );
