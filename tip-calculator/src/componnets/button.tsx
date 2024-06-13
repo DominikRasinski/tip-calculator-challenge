@@ -6,36 +6,38 @@ interface ButtonProps {
   open: openUnionType;
   classCss?: string;
   bgColor?: 'primary' | 'second' | 'none';
-  onClick: (id: number) => void;
+  onClick: (id: number, event: any) => void;
 }
 
 export const Button = (props: ButtonProps) => {
   const { buttonName, bgColor = 'primary', id, onClick } = props;
   let { classCss } = props;
-  const open = props.open === id;
+  let activeCss = classCss;
+  let open = false;
+  open = props.open === id;
 
   const handleClick = (e: any, id: number) => {
-    onClick(id);
+    onClick(id, e);
   };
 
   switch (bgColor) {
     case 'primary':
-      classCss +=
-        ' bg-very-dark-cyan text-hsl-white font-bold my-1 text-[24px]';
+      classCss += ' bg-very-dark-cyan text-hsl-white';
+      activeCss += ' bg-strong-cyan text-very-dark-cyan';
       break;
     case 'second':
-      classCss += ' bg-strong-cyan text-very-dark-cyan font-bold text-[24px]';
+      classCss += ' bg-strong-cyan text-very-dark-cyan';
+      activeCss += ' bg-very-dark-cyan text-hsl-white';
       break;
     case 'none':
       classCss += ' bg-none';
+      activeCss += ' bg-none';
       break;
   }
 
-  classCss += ' p-3 inline-block rounded-md';
-
   return (
     <button
-      className={`${classCss} ${open ? 'bg-red-500 text-blue-500' : ''}`}
+      className={`font-bold text-[24px] p-3 inline-block my-1 rounded-md ${open ? activeCss : classCss}`}
       onClick={(e) => handleClick(e.currentTarget.value, id)}
       value={buttonName}>
       {`${buttonName}`}
