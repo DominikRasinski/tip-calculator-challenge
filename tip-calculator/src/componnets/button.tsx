@@ -1,9 +1,9 @@
-import { openUnionType } from './calculator/calculator';
+import { universalUnionType } from './calculator/calculator';
 
 interface ButtonProps {
   id: number;
   buttonName: string;
-  open: openUnionType;
+  open: universalUnionType;
   classCss?: string;
   bgColor?: 'primary' | 'second' | 'none';
   onClick: (id: number, event: any) => void;

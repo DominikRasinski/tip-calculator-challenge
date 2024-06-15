@@ -11,8 +11,14 @@ export const Input = (props: InputProps) => {
   const { icon, placeholder, value, onChange} = props;
   let { inputCss, containerCss } = props;
 
+  let displayValue = value;
+
   if (!containerCss) {
     containerCss = 'w-full';
+  }
+
+  if(displayValue === null || displayValue === "null" ) {
+    displayValue = '';
   }
 
   return (
@@ -20,9 +26,9 @@ export const Input = (props: InputProps) => {
       {icon && <span className='absolute left-4'>{icon}</span>}
       <input
         type='text'
-        className={`${inputCss} placeholder:text-dark-grayish-cyan pl-6 pr-4 text-right bg-very-light-grayish-cyan py-2 rounded-lg text-very-dark-cyan font-bold text-[24px]`}
+        className={`${inputCss} focus:border-strong-cyan!important placeholder:text-dark-grayish-cyan pl-6 pr-4 text-right bg-very-light-grayish-cyan py-2 rounded-lg text-very-dark-cyan font-bold text-[24px] cursor-pointer`}
         placeholder={placeholder}
-        value={value}
+        value={displayValue}
         onChange={(e) => onChange(e)}
         />
     </div>
