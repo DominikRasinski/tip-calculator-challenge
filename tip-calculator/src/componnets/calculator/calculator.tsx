@@ -23,25 +23,25 @@ export const Calculator = () => {
 
   const handleBill = (event: any) => {
     setBill(Number(event));
-  }
+  };
 
   const handlePeople = (event: any) => {
     setPeople(Number(event));
-  }
+  };
 
   const handleCustom = (event: any) => {
-    if(isFinite(Number(event))) {
+    if (isFinite(Number(event))) {
       setTip(null);
       setCustomTip(Number(event));
     }
-  }
+  };
 
   const handleReset = () => {
     setBill(null);
     setPeople(null);
     setTip(null);
-    setCustomTip(null)
-  }
+    setCustomTip(null);
+  };
 
   return (
     <div className=' flex items-center justify-center flex-col'>
@@ -84,15 +84,30 @@ export const Calculator = () => {
           </div>
           <div className='w-full py-3'>
             <p className='text-[18px] py-3 text-dark-grayish-cyan font-bold'>
-              Number of People <span className='text-red-400 text-right w-full'>{people ? '' : "Can't be a zero!"}</span>
+              <p className='inline-block w-1/2 text-left'>Number of People</p>
+              {bill ? (
+                <p className='text-red-400 text-right w-1/2 inline-block'>
+                  {people ? '' : "Can't be a zero!"}
+                </p>
+              ) : (
+                ''
+              )}
             </p>
-            <Input icon={<IconPerson />} 
-            onChange={(e) => handlePeople(e.target.value)}
-            value={`${people}`}/>
+            <Input
+              icon={<IconPerson />}
+              onChange={(e) => handlePeople(e.target.value)}
+              value={`${people}`}
+            />
           </div>
         </div>
         <div className='w-full md:w-1/2 md:h-full'>
-          <ViewResult onReset={handleReset} tip={tip} peopleNumber={people} bill={bill} customTip={customTip}/>
+          <ViewResult
+            onReset={handleReset}
+            tip={tip}
+            peopleNumber={people}
+            bill={bill}
+            customTip={customTip}
+          />
         </div>
       </div>
     </div>
