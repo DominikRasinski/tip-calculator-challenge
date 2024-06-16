@@ -22,11 +22,19 @@ export const Calculator = () => {
   };
 
   const handleBill = (event: any) => {
-    setBill(Number(event));
+    if(isFinite(Number(event))) {
+      setBill(Number(event));
+    } else {
+      setBill(null);
+    }
   };
 
   const handlePeople = (event: any) => {
-    setPeople(Number(event));
+    if(isFinite(Number(event))) {
+      setPeople(Number(event));
+    } else {
+      setPeople(null);
+    }
   };
 
   const handleCustom = (event: any) => {
@@ -44,11 +52,11 @@ export const Calculator = () => {
   };
 
   return (
-    <div className=' flex items-center justify-center flex-col'>
-      <div className='bg-hsl-white flex items-center justify-center flex-col md:flex-row p-4 md:p-6 rounded-2xl'>
+    <div className=' flex items-center justify-center flex-col flex-grow-0'>
+      <div className='bg-hsl-white max-width-full flex items-center justify-center flex-col md:flex-row p-4 md:p-6 rounded-2xl'>
         <div className='md:w-1/2 md:pr-4'>
           <div className='w-full'>
-            <p className='text-[18px] py-3 text-dark-grayish-cyan font-bold'>
+            <p className='text-[1.125rem] py-3 text-dark-grayish-cyan font-bold'>
               Bill
             </p>
             <Input
@@ -59,7 +67,7 @@ export const Calculator = () => {
             />
           </div>
           <div>
-            <p className='text-[18px] py-3 text-dark-grayish-cyan font-bold'>
+            <p className='text-[1.125rem] py-3 text-dark-grayish-cyan font-bold'>
               Select Tip %
             </p>
             <div className='flex items-center flex-row flex-wrap justify-between'>
@@ -83,7 +91,7 @@ export const Calculator = () => {
             </div>
           </div>
           <div className='w-full py-3'>
-            <p className='text-[18px] py-3 text-dark-grayish-cyan font-bold'>
+            <p className='text-[1.125rem] py-3 text-dark-grayish-cyan font-bold'>
               <p className='inline-block w-1/2 text-left'>Number of People</p>
               {bill ? (
                 <p className='text-red-400 text-right w-1/2 inline-block'>
@@ -100,7 +108,7 @@ export const Calculator = () => {
             />
           </div>
         </div>
-        <div className='w-full md:w-1/2 md:h-full'>
+        <div className='w-full md:w-1/2 md:h-full max-width-full'>
           <ViewResult
             onReset={handleReset}
             tip={tip}

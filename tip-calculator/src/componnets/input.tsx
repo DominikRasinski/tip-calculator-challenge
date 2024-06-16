@@ -26,7 +26,7 @@ export const Input = (props: InputProps) => {
       {icon && <span className='absolute left-4'>{icon}</span>}
       <input
         type='text'
-        className={`${inputCss} focus:outline-2 focus:outline focus:outline-strong-cyan placeholder:text-dark-grayish-cyan pl-6 pr-4 text-right bg-very-light-grayish-cyan py-2 rounded-lg text-very-dark-cyan font-bold text-[24px] cursor-pointer`}
+        className={`${inputCss} focus:outline-2 focus:outline focus:outline-strong-cyan placeholder:text-dark-grayish-cyan pl-6 pr-4 text-right bg-very-light-grayish-cyan py-2 rounded-lg text-very-dark-cyan font-bold text-[1.5rem] cursor-pointer`}
         placeholder={placeholder}
         value={displayValue}
         onChange={(e) => onChange(e)}

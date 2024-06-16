@@ -51,11 +51,11 @@ export const ViewResult = (props: ViewResultProps) => {
           <p className='text-hsl-white w-1/2 inline-block'>
             Tip Amount
             <br />
-            <span className='text-[14px] text-grayish-cyan'>
+            <span className='text-[0.875rem] text-grayish-cyan'>
               / person
             </span>
           </p>
-          <p className='text-2xl md:text-[40px] font-bold w-1/2 inline-block text-right text-[34px] text-strong-cyan'>
+          <p className='max-width-[12.37rem] overflow-scroll text-2xl md:text-[2.5rem] font-bold w-1/2 md:w-[12.37rem] inline-block text-right text-[2.12rem] text-strong-cyan'>
             ${tipPerPerson}
           </p>
         </div>
@@ -63,9 +63,9 @@ export const ViewResult = (props: ViewResultProps) => {
           <p className='text-hsl-white w-1/2 inline-block'>
             Total
             <br />
-            <span className='text-[14px] text-grayish-cyan'> / person</span>
+            <span className='text-[0.875rem] text-grayish-cyan'> / person</span>
           </p>
-          <p className='text-2xl md:text-[40px] font-bold w-1/2 inline-block text-right text-[34px] text-strong-cyan'>
+          <p className='max-width-[12.37rem] overflow-scroll text-2xl md:text-[2.5rem] font-bold w-1/2 md:w-[12.37rem] inline-block text-right text-[2.12rem] text-strong-cyan'>
             ${total}
           </p>
         </div>

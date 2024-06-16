@@ -37,7 +37,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <button
-      className={`font-bold text-[24px] p-3 inline-block my-1 rounded-md ${open ? activeCss : classCss}`}
+      className={`font-bold text-[1.5rem] p-3 inline-block my-1 rounded-md ${open ? activeCss : classCss}`}
       onClick={(e) => handleClick(e.currentTarget.value, id)}
       value={buttonName}>
       {`${buttonName}`}

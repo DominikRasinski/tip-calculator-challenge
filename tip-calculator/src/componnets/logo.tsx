@@ -19,7 +19,7 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <div className='flex items-center justify-center w-auto h-20 mb-8'>
-      <h1 className='w-[4.8rem] text-wrap text-dark-grayish-cyan font-bold text-[24px] tracking-[0.5rem]'>
+      <h1 className='w-[4.8rem] text-wrap text-dark-grayish-cyan font-bold text-[1.5rem] tracking-[0.5rem]'>
         {logoTextArrayFirstHalfString} {logoTextArraySecondHalfString}
       </h1>
     </div>
